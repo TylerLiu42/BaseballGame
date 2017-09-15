@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 /**
- * Creates the JFrame for Connect Four and plays a simple game of Connect 4
+ * Creates the JFrame for the baseball game
  * using the ConnectFourBoard class
  * @author Tyler Liu
  * @version June 2015
