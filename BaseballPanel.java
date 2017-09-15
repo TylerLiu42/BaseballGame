@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 /**
- * Handles the board play for a simple game of Connect 4
+ * Handles the gameplay for a simple baseball game
  * @author Tyler Liu 
  * @version June 2015
  */
