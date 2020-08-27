@@ -4,8 +4,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 /**
- * Creates the JFrame for Connect Four and plays a simple game of Connect 4
- * using the ConnectFourBoard class
+ * Creates the JFrame
  * @author Tyler Liu
  * @version June 2015
  */
@@ -69,7 +68,7 @@ public class BaseballMain extends JFrame implements ActionListener
 		mainMenu.add(helpMenu);
 		// Set the menu bar for this frame to mainMenu
 		setJMenuBar(mainMenu);
-	} // Constructor
+	}
 
 	/**
 	 * Responds to a Menu Event.
@@ -114,10 +113,10 @@ public class BaseballMain extends JFrame implements ActionListener
 	 */
 	public static void main(String[] args)
 	{
-		// Starts up the ConnectFourMain frame
+		// Starts up the BaseballMain frame
 		BaseballMain frame = new BaseballMain();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
-	} // main method
+	}
 }

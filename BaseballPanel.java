@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 /**
- * Handles the board play for a simple game of Connect 4
+ * Handles the gameplay
  * @author Tyler Liu 
  * @version June 2015
  */
@@ -36,7 +36,6 @@ public class BaseballPanel extends JPanel implements KeyListener
 	private boolean [] onBase;
 	private String message;
 	private String pitchMessage = "";
-	private String pitchMessage2 = ""; 
 
 	/**
 	 * Constructs a new Baseball Panel object
@@ -141,19 +140,6 @@ public class BaseballPanel extends JPanel implements KeyListener
 				repaint();
 				return;
 			}
-			
-//			if (ballPos.y > 750)
-//			{
-//				//Strike
-//				ballVelocity = new Point(0, 0);
-//				//Strike
-//				noOfStrikes++; 
-//				status = 2; 
-//				// Repaint the screen after the change
-//				repaint();
-//			}
-//			
-//			else 
 				
 			if (ballPos.y < ballStop && (ballVelocity.y != 0)) {
 				ballVelocity = new Point(0, 0);
@@ -275,12 +261,6 @@ public class BaseballPanel extends JPanel implements KeyListener
 				playerPos[playerToMove].x += playerVelocity[playerToMove].x;
 				playerPos[playerToMove].y += playerVelocity[playerToMove].y;
 			}
-
-			// for (int player = 0; player < playerPos.length; player++)
-			// {
-			// playerPos[player].x += playerVelocity[player].x;
-			// playerPos[player].y += playerVelocity[player].y;
-			// }
 
 			// Repaint the screen
 			repaint();
