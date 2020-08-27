@@ -35,7 +35,7 @@ public class BaseballMain extends JFrame implements ActionListener
 		// Centre the frame in the middle of the screen
 		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
 		setLocation((screen.width - gameBoard.BOARD_SIZE.width) / 2,
-				(screen.height - gameBoard.BOARD_SIZE.height) / 2 - 100);
+				(screen.height - gameBoard.BOARD_SIZE.height) / 2 - 30);
 
 		// Adds the menu and menu items to the frame (see below for code)
 		// Set up the Game MenuItems

@@ -46,7 +46,7 @@ public class BaseballPanel extends JPanel implements KeyListener
 		// Sets up the board area, loads in piece images and starts a new game
 		setPreferredSize(BOARD_SIZE);
 		setBackground(new Color(200, 200, 200));
-		baseballField = new ImageIcon("Baseball+Field.png").getImage();
+		baseballField = new ImageIcon("BaseballField.png").getImage();
 		baseball = new ImageIcon("ball.png").getImage();
 		playerImage = new ImageIcon("OtherPlayer.png").getImage();
 		catcher = new ImageIcon("OtherCatcher.png").getImage();
@@ -135,6 +135,7 @@ public class BaseballPanel extends JPanel implements KeyListener
 				//Called strike
 				ballPos = new Point (428, 515);
 				noOfStrikes++;
+				message = "Strike " + noOfStrikes + "!";
 				ballVelocity = new Point (0,0);
 				status = 1;
 				repaint();
@@ -154,8 +155,7 @@ public class BaseballPanel extends JPanel implements KeyListener
 //			
 //			else 
 				
-				if (ballPos.y < ballStop && (ballVelocity.y != 0))
-			{
+			if (ballPos.y < ballStop && (ballVelocity.y != 0)) {
 				ballVelocity = new Point(0, 0);
 				 System.out.println(Math.abs(ballPos.x - playerPos[playerToMove].x) + "    "
 				 + Math.abs(finalBallPos.y - playerPos[playerToMove].y));
@@ -166,6 +166,7 @@ public class BaseballPanel extends JPanel implements KeyListener
 					//Batter is out
 					noOfOuts++; 
 					message = "You Are Out!"; 
+					pitchMessage = "Press ENTER to hit again";
 					ballPos = new Point (-10,-10);
 					noOfStrikes = 0;
 				}
@@ -266,6 +267,7 @@ public class BaseballPanel extends JPanel implements KeyListener
 					playerVelocity[playerToMove] = new Point(0, 0);
 					// playerToMove = -1;
 				}
+				pitchMessage = "Press ENTER to hit again";
 			}
 
 			if (playerToMove >= 0)
@@ -324,19 +326,17 @@ public class BaseballPanel extends JPanel implements KeyListener
 			//Display instructions on how to swing
 			g.setFont(new Font ("Arial", Font.BOLD, 20));
 			g.setColor(new Color (255,255,255)); 
-			g.drawString(pitchMessage2, 550, 750);
-			pitchMessage2 = "Pitching...Press ENTER to swing"; 
-			pitchMessage = "";
+			pitchMessage = "Pitching...Press ENTER to swing"; 
+			g.drawString(pitchMessage, 550, 700);
 			message = "";
 		}
-		if (status == 3)
+		else if (status == 3)
 		{
 			//Display instructions on how to reset players
 			g.setFont(new Font ("Arial", Font.BOLD, 20));
 			g.setColor(new Color (255,255,255)); 
-			g.drawString(pitchMessage2, 550, 750);
-			pitchMessage2 = "Press ENTER to hit again"; 
-			pitchMessage = ""; 
+			pitchMessage = "Press ENTER to hit again"; 
+			g.drawString(pitchMessage, 550, 750);
 		}
 
 		// Place the players in their respective positions
@@ -370,8 +370,6 @@ public class BaseballPanel extends JPanel implements KeyListener
 		g.drawString("Runs: " + jaysRuns, 15, 550);
 		g.drawString(pitchMessage, 550, 700);
 		pitchMessage = "Press ENTER when ready"; 
-		
-		
 	} // paint component method
 
 	// Keyboard events you can listen for since this JPanel is a KeyListener
@@ -395,7 +393,7 @@ public class BaseballPanel extends JPanel implements KeyListener
 			if (status == 1)
 			{
 				// Set a random delay time between pressing the enter key and
-				// the time of pitch 
+				// the time of pitch
 				delay((int) (Math.random() * 1000 + 1500)); 
 				status = 2;
 				ballVelocity = new Point(0, (int)( Math.random()*6 + 5));
@@ -652,6 +650,7 @@ public class BaseballPanel extends JPanel implements KeyListener
 				ballPos.y = 518;
 				ballVelocity.x = 0;
 				ballVelocity.y = 0;
+				message = "";
 				resetPlayers();
 			}
 
